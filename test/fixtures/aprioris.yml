@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  lhs: MyString
+  rhs: MyString
+  support: 1.5
+  confidence: 1.5
+  lift: 1.5
+
+two:
+  lhs: MyString
+  rhs: MyString
+  support: 1.5
+  confidence: 1.5
+  lift: 1.5
