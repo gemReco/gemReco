@@ -6,7 +6,8 @@ task :load_apriori_model_to_db => :environment do
 
   Apriori.transaction do
     #model.csvの読み込み
-    CSV.open("/r_scripts/model.csv", "r") do |row|
+    CSV.foreach("#{Rails.root}/r_scripts/model.csv") do |row|
+
       #CSVの行の読み込み
       apriori = Apriori.new
 
@@ -14,8 +15,8 @@ task :load_apriori_model_to_db => :environment do
       #まずは、=>で分解する
       split_rules = row[0].split("=>")
 
-      apriori.lhs = split_rules[0].strip.slice(1,size(split_rules[0]))
-      apriori.rhs = split_rules[1].strip.slice(1,size(split_rules[1]))
+      apriori.lhs = split_rules[0].strip.slice(1,split_rules[0].length-1)
+      apriori.rhs = split_rules[1].strip.slice(1,split_rules[1].length-1)
 
       #指標の設定
       apriori.support = row[1]
