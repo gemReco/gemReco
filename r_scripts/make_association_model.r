@@ -1,6 +1,6 @@
 
 library(arules)
-f <- file("sample.csv", "r")
+f <- file("./sample.csv", "r")
 lines <- readLines(con=f)
 
 data.list <- list()
@@ -22,4 +22,3 @@ model.df <- as(model.apriori, "data.frame")
 
 #作ったモデルごとワークスペースに保存
 save.image("./gemRecoModel.RData")
-
