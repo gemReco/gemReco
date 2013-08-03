@@ -39,3 +39,6 @@ inner.recommend.gem <- function(gem.list) {
   return (result.list)
 }
 
+remove.bracket <- function(str.list) {
+  substring(str.list, 2, nchar(str.list)-1)
+}
