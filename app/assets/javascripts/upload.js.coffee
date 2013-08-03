@@ -5,4 +5,4 @@
 $(".upload-btn").click ->
   $(".gemfile-input").click()
 $(".gemfile-input").change ->
-  console.log $(@).val()
+  @.form.submit()

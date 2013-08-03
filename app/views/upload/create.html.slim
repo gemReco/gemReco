@@ -1,0 +1,8 @@
+p あなたにおすすめのライブラリは…
+
+ul
+  - @recommendations.each do |item|
+    li
+      a href="https://rubygems.org/gems/#{item}" target="_blank" = item
+
+a href=root_path トップへ戻る
