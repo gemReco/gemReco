@@ -9,7 +9,7 @@ for (i in 1:length(lines)) {
   line.vec <- strsplit(lines[i], ",")
   data.list <- c(data.list, line.vec)
 }
-f.close()
+close(f)
 
 #モデル用インプットデータ作成
 data.tran <- as(data.list, "transactions")
@@ -21,5 +21,5 @@ model.apriori <- apriori(data.tran)
 model.df <- as(model.apriori, "data.frame")
 
 #作ったモデルごとワークスペースに保存
-
+save.image("./gemRecoModel.RData")
 
