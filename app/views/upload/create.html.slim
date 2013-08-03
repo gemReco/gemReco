@@ -1,8 +1,9 @@
 p あなたにおすすめのライブラリは…
 
-ul
-  - @recommendations.each do |item|
-    li
-      a href="https://rubygems.org/gems/#{item}" target="_blank" = item
+- @recommendations.each do |item|
+  row-fluid
+    .span8 = item
+    a.span2 href="https://rubygems.org/gems/#{item}" target="_blank" Rubygems.org
+    a.span2 href="https://www.ruby-toolbox.com/projects/#{item}" target="_blank" Ruby toolbox
 
-a href=root_path トップへ戻る
+a.back-to-top href=root_path トップへ戻る
