@@ -1,0 +1,8 @@
+.upload-index
+  h1 Gemreco
+  = image_tag('neko.png', width: '300px', height: '300px', class: 'neko-img')
+  p.desc Gemfile を分析して、あなたが使うと便利かもしれないおすすめのライブラリを提案します。
+
+  = form_tag(upload_index_path, multipart:true) do
+    input.gemfile-input type="file" name="gemfile" style="display:none;"
+    .btn.btn-primary.btn-large.upload-btn Upload your Gemfile

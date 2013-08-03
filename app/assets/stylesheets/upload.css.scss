@@ -1,0 +1,24 @@
+// Place all the styles related to the upload controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.upload-index {
+  h1 {
+    text-align: center;
+    font-size: 80px;
+  }
+  .upload-btn {
+    margin: 20px auto;
+    max-width: 300px;
+    display: block
+  }
+
+  .neko-img {
+    display: block;
+    margin: 20px auto;
+  }
+
+  .desc {
+    text-align: center;
+  }
+}
