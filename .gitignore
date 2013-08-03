@@ -26,3 +26,5 @@
 /r_scripts/gemRecoModel.RData
 
 *.Rout
+*.sw*
+.RData
