@@ -1,7 +1,6 @@
 
 library(arules)
-f <- file("./rubygems_500.csv", "r")
-#f <- file("./rubygems_250.csv", "r")
+f <- file("./rubygems_1500.csv", "r")
 lines <- readLines(con=f)
 
 data.list <- list()
