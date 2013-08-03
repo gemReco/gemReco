@@ -10,12 +10,20 @@ extract.rhs <- function(str) {
 }
 
 recommend.gem <- function(gem.list) {
+  tryCatch({
+    inner.recommend.gem(gem.list)
+  }, error = function(err){
+    list()
+  })
+}
+
+inner.recommend.gem <- function(gem.list) {
   
-  test <- gem.list
+  input.list <- gem.list
   result.list <- list()
   
   #ワークスペースに保存されているmodel.aprioriを使用する
-  subset.result <- subset(model.apriori, subset = lhs %in% test[1] & lift > 2)
+  subset.result <- subset(model.apriori, subset = lhs %in% input.list[1] & lift > 2)
 
   #結果の上位1件をデータフレーム形式に変換
   model.df <- as(head(sort(subset.result, by="confidence"), n = 1), "data.frame")
