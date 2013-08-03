@@ -1,7 +1,7 @@
 
 library(arules)
-#f <- file("./rubygems_500.csv", "r")
-f <- file("./rubygems_250.csv", "r")
+f <- file("./rubygems_500.csv", "r")
+#f <- file("./rubygems_250.csv", "r")
 lines <- readLines(con=f)
 
 data.list <- list()
@@ -16,7 +16,7 @@ close(f)
 data.tran <- as(data.list, "transactions")
 
 #アプリオリアルゴリズムでモデルを作成
-model.apriori <- apriori(data.tran, parameter = list(supp =0.01,conf=0.08, maxlen=2, minlen=2))
+model.apriori <- apriori(data.tran, parameter = list(supp =0.05,conf=0.2, maxlen=2, minlen=2))
 
 #再利用するためにモデルをdata.frame形式に変換
 model.df <- as(model.apriori, "data.frame")
