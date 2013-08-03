@@ -24,3 +24,5 @@
 #ignore R workspace
 /r_scripts/.Rhistory
 /r_scripts/gemRecoModel.RData
+
+*.Rout
