@@ -21,7 +21,7 @@ inner.recommend.gem <- function(gem.list) {
   #ワークスペースに保存されているmodel.aprioriを使用する
   subset.result <- subset(model.apriori, subset = lhs %in% input.list & lift > 2)
   result_gems <- labels(rhs(sort(subset.result, by="confidence")))[[2]]
-  unique(result_gems)
+  setdiff(remove.bracket(unique(result_gems)), gem.list)
 }
 
 remove.bracket <- function(str.list) {

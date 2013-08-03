@@ -10,7 +10,13 @@ class Recommender
     input_var_name = gen_input_var_name
     @conn.assign(input_var_name, Rserve::REXP::Wrapper.wrap(gems))
     x = @conn.eval("recommend.gem(#{input_var_name})")
-    x.to_ruby
+    ruby_obj = x.to_ruby || []
+    # 値がひとつの時は文字列で返ってくるので配列にする
+    if ruby_obj.is_a? String
+      [ruby_obj]
+    else
+      ruby_obj
+    end
   end
 
   private
