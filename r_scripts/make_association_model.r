@@ -1,6 +1,5 @@
-
 library(arules)
-f <- file("./rubygems_1500.csv", "r")
+f <- file("./rubygems_2600.csv", "r")
 lines <- readLines(con=f)
 
 data.list <- list()
@@ -21,6 +20,4 @@ model.apriori <- apriori(data.tran, parameter = list(supp =0.05,conf=0.2, maxlen
 model.df <- as(model.apriori, "data.frame")
 
 summary(model.df)
-
-#作ったモデルごとワークスペースに保存
-save.image("./gemRecoModel.RData")
+write.table(model.df, "model.csv", col.names=F, row.names=F, sep=",")
