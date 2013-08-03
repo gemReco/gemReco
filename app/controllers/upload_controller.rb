@@ -6,7 +6,8 @@ class UploadController < ApplicationController
     gemfile = params[:gemfile]
     return redirect_to :root unless gemfile
     file_contents = gemfile.read
-    # process file_contents here to get @recommendations
+    gems = file_contents.scan(/^\s*gem\s*['"]([^'"]+)['"]/m)
+    # process gems here to get @recommendations
     @recommendations = %w(rails sqlite3 sass-rails)
   end
 end
