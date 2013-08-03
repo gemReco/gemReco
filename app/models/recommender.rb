@@ -8,9 +8,8 @@ class Recommender
 
   def recommend_for(gems)
     input_var_name = gen_input_var_name
-    @conn.assign(input_var_name, Rservee::REXP::Wrapper.wrap(gems))
-    # TODO call actual R function
-    x = @conn.eval("append(#{input_var_name}, c(\"foo\"))")
+    @conn.assign(input_var_name, Rserve::REXP::Wrapper.wrap(gems))
+    x = @conn.eval("recommend.gem(#{input_var_name})")
     x.to_ruby
   end
 
